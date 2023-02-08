@@ -35,6 +35,8 @@ public class TicTacToe
     private Square[][] board;
     private boolean isGameOver;
 
+    private TicTacToeViewer window;
+
     /**
      * Constructor which initialized the board with BLANKs.
      * The winner is also initialized to BLANK.
@@ -49,7 +51,7 @@ public class TicTacToe
                 this.board[row][col] = new Square(row, col);
             }
         }
-
+        window = new TicTacToeViewer(this.board);
         // Initialize winning stats variables
         this.isGameOver = false;
         this.turn = 0;
@@ -114,13 +116,14 @@ public class TicTacToe
             int row = input.nextInt();
             System.out.println("Enter your Col Pick:" );
             int col = input.nextInt();
+            window.repaint();
             if(this.pickLocation(row, col)) {
                 this.takeTurn(row, col);
             } else {
                 System.out.println("That space is taken, or you entered an invalid row/col");
             }
         }
-
+        window.repaint();
         this.printBoard();
         this.isGameOver = true;
 
@@ -137,6 +140,7 @@ public class TicTacToe
                 System.out.println("X Wins!");
             }
         }
+        window.repaint();
     }
 
 
