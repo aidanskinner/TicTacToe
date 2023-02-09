@@ -1,15 +1,4 @@
-/**
- * A TicTacToe game adopted from CodeHS
- * Written to be used for either the console or
- * the TicTacToeView class
- *
- * Each position on the board is a Square object
- * which keeps track of the marker ("X", "O")
- *
- * @author: Nandhini Namasivayam
- * @version: Jan 2023
- */
-
+// Aidan Skinner
 import java.util.Scanner;
 
 public class TicTacToe
@@ -35,6 +24,7 @@ public class TicTacToe
     private Square[][] board;
     private boolean isGameOver;
 
+    // Keeps track of the front end
     private TicTacToeViewer window;
 
     /**
@@ -51,7 +41,8 @@ public class TicTacToe
                 this.board[row][col] = new Square(row, col);
             }
         }
-        window = new TicTacToeViewer(this.board);
+        // Creates new back end
+        window = new TicTacToeViewer(this.board, this);
         // Initialize winning stats variables
         this.isGameOver = false;
         this.turn = 0;

@@ -1,20 +1,8 @@
+// Aidan Skinner
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.*;
 import java.awt.*;
-
-
-/**
- * A class written to support the TicTacToe Game.
- *
- * Each Square object is one position of the TicTacToe
- * board. It maintains information on the marker, its
- * location on the board, and whether it is part
- * of the winning set.
- *
- * @author: Nandhini Namasivayam
- * @version: Jan 2023
- */
 
 public class Square {
 
@@ -76,14 +64,16 @@ public class Square {
 
     public void draw(Graphics g, Image x, Image y, TicTacToeViewer w) {
         g.setColor(Color.black);
+        // Starting x and y values for the squares
         int my_x = STARTING_X + SQUARE_WIDTH * col;
         int my_y = STARTING_Y + SQUARE_WIDTH * row;
         g.drawRect(my_x,my_y, SQUARE_WIDTH, SQUARE_HEIGHT);
+        // If statements for the winners, if the marker is X then X wins and if the marker is O then O wins
         if (this.getMarker().equals("X")) {
             g.drawImage(x, my_x,my_y ,SQUARE_WIDTH, SQUARE_HEIGHT, w);
         }
         if (this.getMarker().equals("O")) {
-            g.drawImage(y, my_x,my_y ,SQUARE_WIDTH, SQUARE_HEIGHT, w);
+            g.drawImage(y, my_x, my_y, SQUARE_WIDTH, SQUARE_HEIGHT, w);
         }
     }
 }
